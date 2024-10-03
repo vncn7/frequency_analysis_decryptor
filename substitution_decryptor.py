@@ -1,7 +1,7 @@
 from collections import Counter
 
 # Frequency of each letter in the English and German language
-letter_frequencies_english = {
+sorted_letter_percentages_english = {
     'E': 12.70, 'T': 9.06, 'A': 8.17, 'O': 7.51, 'I': 6.97,
     'N': 6.75, 'S': 6.33, 'H': 6.09, 'R': 5.99, 'D': 4.25,
     'L': 4.03, 'C': 2.78, 'U': 2.76, 'M': 2.41, 'W': 2.36,
@@ -21,11 +21,18 @@ def calculate_letter_percentages(text):
     return sorted_letter_percentages
 
 # Decrypt the text using the frequency analysis technique
-#def decrypt(encrypted_text):
+def decrypt(encrypted_text, shifts = 10):
     cleaned_text = clean_text(encrypted_text)
-    letter_percentages = calculate_letter_percentages(cleaned_text)
-    
+    encrypted_letter_percentages = calculate_letter_percentages(cleaned_text)
 
+    # multiple shifts 
+    # different combinations. biagrams and tri-grams maybe? try multiple stuff and print everyone.
+    # alaso implement 
+    print(sorted_letter_percentages_english)
+    print(encrypted_letter_percentages)
+
+    # temp
+    decrypted_text = ""
     
     return decrypted_text
 
@@ -33,12 +40,14 @@ def main():
     encrypted_text = "LFAJ AJ LFO JADNKO OHECUNLAWH WY Q JADNKO LOML ALJ ZOLLOC LW FQTO KWTOB QHB KWJL LFQH HOTOC LW FQTO KWTOB QL QKK"
     
     # test functions
-    print(calculate_letter_percentages(clean_text(encrypted_text)))
+    decrypted_text = decrypt(encrypted_text)
 
 
 
     print("\nOriginal encrypted text:")
     print(encrypted_text)
+    print("\nDecrypted text:")
+    print(decrypted_text)
 
 if __name__ == "__main__":
     main()
