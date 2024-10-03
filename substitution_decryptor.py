@@ -20,8 +20,12 @@ def calculate_letter_percentages(text):
     sorted_letter_percentages = {letter: (count / len(text) * 100) for letter, count in sorted(letter_frequencies.items(), key=lambda item: item[1], reverse=True)}
     return sorted_letter_percentages
 
+
+
+
+
 # Decrypt the text using the frequency analysis technique
-def decrypt(encrypted_text, shifts = 10):
+def decrypt(encrypted_text):
     cleaned_text = clean_text(encrypted_text)
     encrypted_letter_percentages = calculate_letter_percentages(cleaned_text)
 
@@ -36,13 +40,21 @@ def decrypt(encrypted_text, shifts = 10):
     
     return decrypted_text
 
+
+
+
+
+
+
+
+
+
+
 def main():
     encrypted_text = "LFAJ AJ LFO JADNKO OHECUNLAWH WY Q JADNKO LOML ALJ ZOLLOC LW FQTO KWTOB QHB KWJL LFQH HOTOC LW FQTO KWTOB QL QKK"
     
     # test functions
     decrypted_text = decrypt(encrypted_text)
-
-
 
     print("\nOriginal encrypted text:")
     print(encrypted_text)
